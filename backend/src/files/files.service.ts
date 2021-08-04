@@ -11,17 +11,16 @@ export class FilesService {
     try{
 
         const filename = uuid.v4() + path.extname(file.originalname);
-      console.log(dirName)
-        const filePath = path.resolve(__dirname, '..', dirName ? `static/${dirName}` : 'static')
+        const folderName = dirName ? `static/${dirName}` : 'static';
+        const filePath = path.resolve(__dirname, '..', folderName)
         if (!fs.existsSync(filePath)){
           fs.mkdirSync(filePath, {recursive: true})
         }
         fs.writeFileSync(path.join(filePath, filename), file.buffer)
       let returnFile = `{
-          name: ${filename},
-          path: ${filePath},
+          "name": "${filename}",
+          "folder": "${folderName}"
       }`;
-        console.log(returnFile)
 
       return returnFile
     } catch (e) {
