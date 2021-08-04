@@ -11,11 +11,20 @@ import {AuthService} from './auth/auth.service';
 import {AuthModule} from './auth/auth.module';
 import {ArteventsModule} from './artevents/artevents.module';
 import {Artevents} from "./artevents/artevents.model";
+import { GalleryitemModule } from './galleryitem/galleryitem.module';
+import { Galleryitem } from "./galleryitem/galleryitem.model";
+import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { doc } from "prettier";
+import * as path from 'path'
 
 @Module({
     imports: [
         ConfigModule.forRoot({
             envFilePath: `.${process.env.NODE_ENV}.env`
+        }),
+        ServeStaticModule.forRoot({
+            rootPath: path.resolve(__dirname, 'static')
         }),
         SequelizeModule.forRoot({
             dialect: 'postgres',
@@ -24,13 +33,15 @@ import {Artevents} from "./artevents/artevents.model";
             username: process.env.POSTGRES_USER,
             password: process.env.POSTGRES_PASSWORD,
             database: process.env.POSTGRES_DB,
-            models: [User, Role, Artevents, UserRoles],
+            models: [User, Role, Artevents, UserRoles, Galleryitem],
             autoLoadModels: true
         }),
         ArteventsModule,
         UsersModule,
         RolesModule,
         AuthModule,
+        GalleryitemModule,
+        FilesModule,
     ],
     controllers: [AuthController],
     providers: [AuthService],

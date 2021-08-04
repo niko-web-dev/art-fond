@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
 import {ApiOperation, ApiResponse, ApiTags} from "@nestjs/swagger";
 import {ArteventsService} from "./artevents.service";
 import {CreateArteventsDto} from "./dto/create-artevents.dto";
 import {Artevents} from "./artevents.model";
+import { FileInterceptor } from "@nestjs/platform-express";
 
 @ApiTags('Artevents')
 @Controller('artevents')
@@ -17,6 +18,14 @@ export class ArteventsController {
         return this.eventService.createEvents(dto)
     }
 
+    @ApiOperation({summary: 'Save image for event'})
+    @Post('/save-image')
+    @UseInterceptors(FileInterceptor('photo'))
+    saveImage(@Body() eventName: string, @UploadedFile() photo){
+        return this.eventService.saveImage(photo, eventName)
+    }
+
+    @ApiOperation({summary: 'Get all events'})
     @Get()
     getAll(){
         return this.eventService.getAllEvents()

@@ -5,12 +5,13 @@ import {UsersService} from "../users/users.service";
 import {JwtService} from "@nestjs/jwt";
 import * as bcrypt from "bcryptjs"
 import {User} from "../users/users.model";
+import { FilesService } from "../files/files.service";
 
 @Injectable()
 export class AuthService {
 
     constructor(private userService: UsersService,
-                private  jwtService: JwtService) {
+                private  jwtService: JwtService, private fileService: FilesService) {
     }
 
     async login(userDto: LoginUserDto){
@@ -18,13 +19,14 @@ export class AuthService {
         return this.generateToken(user)
     }
 
-    async registration(userDto: CreateUserDto){
+    async registration(userDto: CreateUserDto, image){
+        const fileName = await this.fileService.createFile(image)
         const candidate = await this.userService.getUsersByEmail(userDto.email)
         if (candidate){
             throw new HttpException('Пользователь существует', HttpStatus.BAD_REQUEST)
         }
         const hashPassword = await bcrypt.hash(userDto.password, 5)
-        const user = await this.userService.createUser({...userDto, password: hashPassword})
+        const user = await this.userService.createUser({...userDto, photo: fileName, password: hashPassword})
         return this.generateToken(user);
     }
 
