@@ -1,0 +1,225 @@
+.form {
+  padding-top: 125px;
+  &__title {
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: calc(1em / 5);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    max-width: 205px;
+  }
+  &__inner {
+    max-width: 862px;
+    margin: 0 auto;
+    padding: 0 56px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__items {
+    &:nth-child(1){
+      width: 22%;
+      display: flex;
+      flex-direction: column;
+    }
+    &:nth-child(2),
+    &:nth-child(3){
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__label_photo {
+    width: 100%;
+    height: 165px;
+    border: 1px solid #000000;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 25px;
+  }
+  &__input_checked,
+  &__input_photo{
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    position: absolute;
+  }
+  &__input_box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    span{
+      display: block;
+      text-align: center;
+      font-family: 15px;
+      line-height: 15px;
+      font-weight: 400;
+      opacity: 0.5;
+    }
+  }
+  &__item_contact {
+  }
+  &__item_img{
+    width: 27px;
+    height: 27px;
+    margin: 0 auto 12px;
+  }
+  &__item_come {
+    width: 100%;
+    height: 23px;
+    padding: 0 7px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+  &__item {
+    margin-bottom: 27px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &__subtitle {
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: calc(1em / 5);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    max-width: 205px;
+  }
+  &__subtitle__last{
+    margin-bottom: 8px;
+  }
+  &__input {
+    width: 100%;
+    height: 22px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 25px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    &::placeholder{
+      font-size: 12px;
+      line-height: 25px;
+      color: #000;
+      opacity: 0.5;
+    }
+  }
+  &__textarea{
+    width: 100%;
+    height: 128px;
+    border: 1px solid #000000;
+    padding: 5px 10px;
+    resize: none;
+    font-size: 12px;
+    line-height: 14px;
+    &::placeholder{
+      max-width: 85px;
+      font-size: 12px;
+      line-height: 14px;
+      color: #000;
+      opacity: 0.5;
+    }
+  }
+  &__label_checked {
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+  }
+  &__input_checked:checked + .form__span_check{
+    background-image: url("data:image/svg+xml,%3Csvg width='22' height='22' viewBox='0 0 22 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.5 5.5L10.5 16.5L16.5 5.5' stroke='black' stroke-width='2'/%3E%3C/svg%3E%0A");
+  }
+  &__span_check {
+    display: block;
+    min-width: 22px;
+    height: 22px;
+    border: 1px solid #000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 12px;
+  }
+  &__span_text {
+    margin-right: -56px;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+  }
+  &__btn {
+    width: 165px;
+    height: 23px;
+    text-align: center;
+    background-color: #000;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 12px;
+    line-height: 25px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 810px){
+  .form{
+    &__inner{
+      padding: 0;
+    }
+    &__label_photo{
+      height: 154px;
+    }
+    &__span_text{
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 720px){
+  .form{
+    &__title{
+      margin-bottom: 32px;
+    }
+    &__inner{
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .form__items-photo{
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 332px;
+    }
+    .form__items{
+      width: 332px;
+      &:nth-child(2){
+        margin-bottom: 32px;
+      }
+    }
+    &__label-photo,
+    &__item-contact{
+      width: 48%;
+      margin-bottom: 32px;
+    }
+    &__btn{
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 375px){
+  .form{
+    .form__items{
+      width: 100%;
+    }
+  }
+  .container{
+    padding: 0 24px 0 23px;
+  }
+}

@@ -1,0 +1,72 @@
+.intro{
+  padding: 125px 0 145px;
+  display: flex;
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+  &__info{
+    display: flex;
+    flex: 0 1 25vw;
+    padding-right: 20px;
+    margin-left: auto;
+    flex-direction: column;
+    @media (max-width: 700px) {
+      width: 100%;
+      padding: 0 10px;
+      order: 1;
+      display: contents;
+    }
+  }
+  &__title{
+    font-family: Austin Cyr;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.1em;
+    max-width: 235px;
+    width: 100%;
+    margin-left: auto;
+    margin-bottom: 25px;
+    @media (max-width: 700px) {
+      padding: 0 10px;
+    }
+    &_help{
+      font-family: Druk Cyr;
+      letter-spacing: 0.2em;
+    }
+  }
+  &__text{
+    max-width: 260px;
+    width: 100%;
+    font-family: Austin Cyr;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    color: #000000;
+    &_top{
+      margin-bottom: auto;
+      @media (max-width: 700px) {
+        margin-bottom: 20px;
+        padding: 0 10px;
+      }
+    }
+    &_bot{
+      margin-left: auto;
+      text-align: right;
+      @media (max-width: 700px) {
+        margin-top: 20px;
+        order: 3;
+        padding: 0 10px;
+      }
+    }
+  }
+  &__img{
+    display: flex;
+    flex: 0 1 62.5vw;
+    height: auto;
+    @media (max-width: 700px) {
+      order: 2;
+      display: contents;
+    }
+  }
+}

@@ -11,6 +11,899 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+*, :after, :before {
+  box-sizing: border-box
+}
+
+ol[class], ul[class] {
+  padding: 0
+}
+
+blockquote, body, dd, dl, figcaption, figure, h1, h2, h3, h4, li, ol[class], p, ul[class] {
+  margin: 0
+}
+
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5
+}
+
+ol[class], ul[class] {
+  list-style: none
+}
+
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip-ink: auto
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+article > * + * {
+  margin-top: 1em
+}
+
+button, input, select, textarea {
+  font: inherit
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    -webkit-animation-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    -webkit-transition-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important
+  }
+}
+
+html {
+  font-size: 62.5%;
+  color: #000;
+  text-rendering: optimizelegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga", "kern";
+  letter-spacing: -.5px;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0
+}
+
+body {
+  font-size: 1.8rem;
+  color: #2a303d;
+  font-family: Austin Cyr, sans-serif;
+  font-size: 20px;
+  line-height: 1.2;
+  color: #000;
+  background: #fff;
+  overflow-x: hidden
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 400;
+  src: url(../static/fonts/AustinCyr-Roman.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 400;
+  src: url(../static/fonts/AustinCyr-Italic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 500;
+  src: url(../static/fonts/AustinCyr-Medium.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 500;
+  src: url(../static/fonts/AustinCyr-MediumItalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 600;
+  src: url(../static/fonts/AustinCyr-Semibold.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 600;
+  src: url(../static/fonts/AustinCyr-SemiboldItalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 700;
+  src: url(../static/fonts/AustinCyr-Bold.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 700;
+  src: url(../static/fonts/AustinCyr-BoldItalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 800;
+  src: url(../static/fonts/AustinCyr-Extrabold.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 800;
+  src: url(../static/fonts/AustinCyr-ExtraboldItalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 900;
+  src: url(../static/fonts/AustinCyr-Fat.woff) format("woff")
+}
+
+@font-face {
+  font-family: Austin Cyr;
+  font-style: italic;
+  font-weight: 900;
+  src: url(../static/fonts/AustinCyr-FatItalic.woff) format("woff")
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-Bold.eot);
+  src: local("Druk Cyr Bold"), local("DrukCyr-Bold"), url(../static/fonts/DrukCyr-Bold.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-Bold.woff2) format("woff2"), url(../static/fonts/DrukCyr-Bold.woff) format("woff"), url(../static/fonts/DrukCyr-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-Heavy.eot);
+  src: local("Druk Cyr Heavy"), local("DrukCyr-Heavy"), url(../static/fonts/DrukCyr-Heavy.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-Heavy.woff2) format("woff2"), url(../static/fonts/DrukCyr-Heavy.woff) format("woff"), url(../static/fonts/DrukCyr-Heavy.ttf) format("truetype");
+  font-weight: 900;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-HeavyItalic.eot);
+  src: local("Druk Cyr Heavy Italic"), local("DrukCyr-HeavyItalic"), url(../static/fonts/DrukCyr-HeavyItalic.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-HeavyItalic.woff2) format("woff2"), url(../static/fonts/DrukCyr-HeavyItalic.woff) format("woff"), url(../static/fonts/DrukCyr-HeavyItalic.ttf) format("truetype");
+  font-weight: 900;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-MediumItalic.eot);
+  src: local("Druk Cyr Medium Italic"), local("DrukCyr-MediumItalic"), url(../static/fonts/DrukCyr-MediumItalic.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-MediumItalic.woff2) format("woff2"), url(../static/fonts/DrukCyr-MediumItalic.woff) format("woff"), url(../static/fonts/DrukCyr-MediumItalic.ttf) format("truetype");
+  font-weight: 500;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-SuperItalic.eot);
+  src: local("Druk Cyr Super Italic"), local("DrukCyr-SuperItalic"), url(../static/fonts/DrukCyr-SuperItalic.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-SuperItalic.woff2) format("woff2"), url(../static/fonts/DrukCyr-SuperItalic.woff) format("woff"), url(../static/fonts/DrukCyr-SuperItalic.ttf) format("truetype");
+  font-weight: 400;
+  font-style: italic
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-Super.eot);
+  src: local("Druk Cyr Super"), local("DrukCyr-Super"), url(../static/fonts/DrukCyr-Super.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-Super.woff2) format("woff2"), url(../static/fonts/DrukCyr-Super.woff) format("woff"), url(../static/fonts/DrukCyr-Super.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-Medium.eot);
+  src: local("Druk Cyr Medium"), local("DrukCyr-Medium"), url(../static/fonts/DrukCyr-Medium.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-Medium.woff2) format("woff2"), url(../static/fonts/DrukCyr-Medium.woff) format("woff"), url(../static/fonts/DrukCyr-Medium.ttf) format("truetype");
+  font-weight: 500;
+  font-style: normal
+}
+
+@font-face {
+  font-family: Druk Cyr;
+  src: url(../static/fonts/DrukCyr-BoldItalic.eot);
+  src: local("Druk Cyr Bold Italic"), local("DrukCyr-BoldItalic"), url(../static/fonts/DrukCyr-BoldItalic.eot?#iefix) format("embedded-opentype"), url(../static/fonts/DrukCyr-BoldItalic.woff2) format("woff2"), url(../static/fonts/DrukCyr-BoldItalic.woff) format("woff"), url(../static/fonts/DrukCyr-BoldItalic.ttf) format("truetype");
+  font-weight: 700;
+  font-style: italic
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+  font-style: normal;
+  font-weight: 500
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Druk Cyr, sans-serif;
+  letter-spacing: .2em
+}
+
+img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  cursor: pointer
+}
+
+.w400 {
+  font-weight: 400
+}
+
+.w500 {
+  font-weight: 500
+}
+
+.w600 {
+  font-weight: 600
+}
+
+.w700 {
+  font-weight: 700
+}
+
+.w800 {
+  font-weight: 800
+}
+
+.w900 {
+  font-weight: 900
+}
+
+.container {
+  max-width: 1165px;
+  width: 100%;
+  padding: 0 10px;
+  margin: 0 auto
+}
+
+.title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 25px
+}
+
+.title-ml {
+  margin-left: 100px
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center
+}
+
+.img, img {
+  -o-object-fit: cover;
+  object-fit: cover
+}
+
+.austin {
+  font-family: Austin Cyr, sans-serif
+}
+
+picture{
+  position: relative;
+}
+
+
+
+.event-intro {
+  padding-top: 124px
+}
+
+.event-intro__wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between
+}
+
+@media (max-width: 600px) {
+  .event-intro__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column
+  }
+}
+
+.event-intro__info {
+  max-width: 180px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: auto;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  margin-left: 2.9vw
+}
+
+@media (max-width: 600px) {
+  .event-intro__info {
+    display: contents
+  }
+}
+
+.event-intro__img {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  max-width: 770px;
+  width: 100%;
+  height: auto
+}
+
+@media (max-width: 600px) {
+  .event-intro__img {
+    margin-bottom: 20px;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    order: 2
+  }
+}
+
+.event-intro__title {
+  font-family: Druk Cyr;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: .1em;
+  color: #000;
+  text-transform: uppercase
+}
+
+@media (max-width: 600px) {
+  .event-intro__title {
+    margin-bottom: 20px;
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    order: 1;
+    margin-left: auto;
+    margin-right: 10vw
+  }
+}
+
+.event-intro__date {
+  font-family: Druk Cyr;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: .1em;
+  color: #000;
+  width: 71px;
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+  order: 3
+}
+
+@media (max-width: 600px) {
+  .event-intro__date {
+    margin-left: 10vw
+  }
+}
+
+.event-content {
+  padding-top: 35px
+}
+
+.event-content__wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center
+}
+
+.event-content__title {
+  max-width: 750px;
+  font-family: Druk Cyr;
+  line-height: 22px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 60px
+}
+
+.event-content__text, .event-content__title {
+  width: 100%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  color: #000
+}
+
+.event-content__text {
+  max-width: 555px;
+  font-family: Austin Cyr;
+  line-height: 24px
+}
+
+.event-content__text:not(:last-child) {
+  margin-bottom: 50px
+}
+
+.event-content__text b {
+  font-family: Druk Cyr;
+  letter-spacing: .1em
+}
+
+.event-content__picture {
+  max-width: 975px;
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 20px
+}
+
+.event-content__picture-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px
+}
+
+.event-content__picture-text {
+  text-transform: uppercase;
+  font-family: Druk Cyr;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: .2em;
+  color: #000
+}
+
+.event-content__picture-text span {
+  text-transform: lowercase;
+  font-family: Austin Cyr;
+  font-size: 20px;
+  line-height: 16px
+}
+
+/*profile */
+.profile {
+  padding-top: 120px
+}
+
+.profile-intro {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  margin-bottom: 25px
+}
+
+.profile-intro__title {
+  margin-bottom: 30px;
+  margin-left: 30px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .profile-intro__title {
+    margin-left: 0
+  }
+}
+
+.profile-intro__wrapper {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  max-width: 850px;
+  width: 100%;
+  margin-left: auto
+}
+
+.profile-intro__info, .profile-intro__wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex
+}
+
+.profile-intro__info {
+  margin-bottom: 25px
+}
+
+@media (max-width: 700px) {
+  .profile-intro__info {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-intro__info {
+    display: contents
+  }
+}
+
+.profile-intro__img {
+  max-width: 375px;
+  min-width: 300px;
+  width: 100%;
+  height: auto;
+  margin-right: 30px
+}
+
+@media (max-width: 700px) {
+  .profile-intro__img {
+    margin-bottom: 30px
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-intro__img {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    order: 1
+  }
+}
+
+.profile-intro__text {
+  max-width: 460px;
+  width: 100%;
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000
+}
+
+@media (max-width: 480px) {
+  .profile-intro__text {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    order: 3
+  }
+}
+
+.profile-intro__contact {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column
+}
+
+@media (max-width: 480px) {
+  .profile-intro__contact {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    order: 2;
+    margin-bottom: 30px
+  }
+}
+
+.profile-intro__contact-title {
+  margin-bottom: 10px
+}
+
+.profile-intro__contact-link {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  color: #000
+}
+
+.profile-intro__contact-link:not(:last-child) {
+  margin-bottom: 16px
+}
+
+.profile-portfolio {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between
+}
+
+@media (max-width: 700px) {
+  .profile-portfolio {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column
+  }
+}
+
+.profile-portfolio__column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: calc(50% - 20px)
+}
+
+@media (max-width: 700px) {
+  .profile-portfolio__column {
+    width: 100%
+  }
+}
+
+.profile-portfolio__block {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column
+}
+
+.profile-portfolio__block:not(:last-child) {
+  margin-bottom: 30px
+}
+
+.profile-portfolio__block-img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 25px
+}
+
+.profile-portfolio__block-title {
+  margin-bottom: 25px
+}
+
+.profile-portfolio__block-info {
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 16px;
+  color: #000
+}
+
+.profile-portfolio__block-info b {
+  font-family: Druk Cyr
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.edit-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0;
+}
+
+.edit-btn:not(:last-child) {
+  margin-right: 26px;
+}
+
+.edit-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.edit-block__btn {
+  margin-left: auto;
+  padding: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: 0.2em;
+  font-family: Druk Cyr, sans-serif;
+  text-transform: uppercase;
+  text-align: right;
+  color: #ffffff;
+}
+
+.edit-block__btn--short {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+
+.edit-block__btn--alone {
+  margin-left: 0;
+}
+
+.add-work {
+  width: 100%;
+  background: #ffffff;
+}
+
+.add-work:not(:last-child) {
+  margin-bottom: 60px;
+}
+
+.add-work_file-preview {
+  position: relative;
+  min-height: 255px;
+  margin-bottom: 15px;
+  border: 1px solid #000;
+}
+
+.add-work__input-file {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.add-work__input {
+  border: 1px solid #000;
+  padding: 6px 10px;
+  color: #000000;
+  margin-bottom: 15px;
+}
+
+.add-work__button, .add-work__input {
+  width: 100%;
+  font-family: Austin Cyr;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.add-work__button {
+  padding: 8px 0 8px 12px;
+  background: #000;
+  color: #fff;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.add-work__button:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.add-work__edit-block {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  background-color: #000000;
+}
+
+.add-work__edit-block--file {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.profile-portfolio__block-edit-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profile-portfolio__edit-block {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.profile-portfolio__block-box {
+  position: relative;
+  margin-bottom: 25px
+}
+
+.fix-padding-menu{
+  padding-top: 80px;
 }
